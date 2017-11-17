@@ -1,0 +1,120 @@
+main {
+  width: 50%;
+  float: left;
+}
+
+.project-covers {
+  padding-bottom: 0px;
+  padding-top: 25px;
+
+  :nth-child(2n+1) {
+    clear: left;
+    margin-left: 0;
+  }
+  :nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+.project-cover {
+  margin-right: 1%;
+  width: 49.5%;
+  float: left;
+  position: relative;
+  &:hover {
+    .cover-rollover {
+      display: block;
+    }
+    .has-rollover {
+      display: none;
+    }
+    .cover-image {
+      &::after {
+        background-color: #fff;
+        opacity: 0.4;
+      }
+    }
+  }
+  .cover-normal {
+    .title {
+      padding-top: 35%;
+      padding-bottom: 35%;
+      height: 30%;
+      margin-top: auto;
+      margin-bottom: auto;
+      text-align: center;
+      color: #2e2e2e;
+      font-size: 40px;
+      font-weight: 900;
+    }
+  }
+  .cover-image {
+    &::after {
+      background-color: #fff;
+      opacity: 0;
+    }
+  }
+  .cover-image-wrap {
+    margin-bottom: 2%;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    overflow: hidden;
+    position: relative;
+  }
+  .cover-image {
+    border-radius: 0px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: relative;
+
+  }
+  .details-wrap {
+    padding-bottom: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding-top: 0%;
+    width: 100%;
+  }
+  .details {
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.3s ease;
+  }
+  .details-inner {
+    padding-left: 0%;
+    padding-right: 0%;
+    overflow: hidden;
+  }
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
+  }
+}
+
+.project-cover.hold-space .cover-image{
+  &::before {
+    padding-bottom: 100%;
+    content: '';
+    display: block;
+    width: 100%;
+  }
+  &::after {
+    transition: background-color 0.4s ease, opacity 0.4s ease;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.link-transition a {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a {
+  text-decoration: none;
+}
