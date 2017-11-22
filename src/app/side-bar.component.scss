@@ -1,5 +1,10 @@
+@import "../assets/sass/screens.scss";
+
 .sidebar-content {
-  width: 25%;
+  @media (max-width: $mediaMedium) {
+    display: none;
+  }
+  width: 25%;    
   float: left;
 }
 .site-header {

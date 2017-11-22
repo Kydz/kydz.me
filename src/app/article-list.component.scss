@@ -1,4 +1,12 @@
+@import "../assets/sass/screens.scss";
+
 main {
+  @media (max-width: $mediaSmall) {
+    width: 100%
+  }
+  @media (max-width: $mediaMedium) {
+    width: 75%
+  }
   width: 50%;
   float: left;
 }
@@ -17,8 +25,13 @@ main {
 }
 
 .project-cover {
-  margin-right: 1%;
-  width: 49.5%;
+
+  @media (min-width: 640px) {
+    margin-right: 1%;
+    width: 49.5%;
+  }
+
+
   float: left;
   position: relative;
   &:hover {
@@ -35,17 +48,23 @@ main {
       }
     }
   }
+  .cover-rollover {
+    .preview {
+      padding-top: 20%;
+      padding-bottom: 20%;
+      height: 60%;
+    }
+  }
   .cover-normal {
+    .brief {
+      height: 200px;
+      padding: 5%;
+    }
     .title {
-      padding-top: 35%;
-      padding-bottom: 35%;
-      height: 30%;
-      margin-top: auto;
-      margin-bottom: auto;
       text-align: center;
       color: #2e2e2e;
       font-size: 40px;
-      font-weight: 900;
+      font-weight: 400;
     }
   }
   .cover-image {
@@ -95,11 +114,10 @@ main {
     min-height: 100%;
     width: 100%;
     background-position: center center;
-    background-repeat: none;
     background-size: cover;
+    background-image: url('../assets/blank.png');
   }
 }
-
 .project-cover.hold-space .cover-image{
   &::before {
     padding-bottom: 100%;

@@ -18,44 +18,11 @@
 </header>
 <nav decorator="editable">
   <ul class="group">
-    <li class="gallery-title">
-      <a href="/projects" class="active">Projects</a>
+    <li class="gallery-title" *ngFor="let menu of getMenus()">
+      <a href="{{menu.url}}" class="active">{{menu.label}}</a>
     </li>
     <li class="project-title">
-      <a href="/aspiration-bank-app">Aspiration Bank App</a>
-    </li>
-    <li class="project-title">
-      <a href="/qriously">Qriously</a>
-    </li>
-    <li class="project-title">
-      <a href="/hyphen">Hyphen</a>
-    </li>
-    <li class="project-title">
-      <a href="/smashd">Smashd</a>
-    </li>
-    <li class="project-title">
-      <a href="/illustrations">Illustrations</a>
-    </li>
-    <li class="project-title">
-      <a href="/kayak">Kayak</a>
-    </li>
-    <li class="project-title">
-      <a href="/logos">Logos</a>
-    </li>
-    <li class="project-title">
-      <a href="/on-the-road-again">On the Road Again</a>
-    </li>
-    <li class="project-title">
-      <a href="/vsco">VSCO</a>
-    </li>
-    <li class="project-title">
-      <a href="/35mm">35mm</a>
-    </li>
-    <li class="project-title">
-      <a href="/layout-designs">Layout Designs</a>
-    </li>
-    <li class="project-title">
-      <a href="/le-resum-2016">Le Resumé 2016</a>
+      <a href="/aspiration-bank-app">Just an example of inactive</a>
     </li>
   </ul>
   <div class="page-title">
