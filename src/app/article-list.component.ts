@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { catchError, map, tap, retry } from 'rxjs/operators';
-import 'rxjs/add/operator/retry';
+import { catchError } from 'rxjs/operators';
 
 import { Article } from './article';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
@@ -19,7 +16,7 @@ export class ArticleListComponent implements OnInit {
   public articles;
 
   constructor(
-    private http: HttpClient,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -28,9 +25,7 @@ export class ArticleListComponent implements OnInit {
 
   fetchArticles(): void {
     this.http.get<Article[]>(this.apiUrl)
-    .pipe(
-      catchError(this.handleError('fetchArticles', []))
-    ).subscribe(
+    .subscribe(
       articles => this.articles = articles,
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {
@@ -40,11 +35,5 @@ export class ArticleListComponent implements OnInit {
         }
       }
     );
-  }
-
-  handleError<T>(operation, result ?: T) {
-    return (error: any): Observable<T> => {
-      return Observable.throw(error);
-    };
   }
 }
