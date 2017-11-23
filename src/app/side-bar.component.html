@@ -18,7 +18,7 @@
 </header>
 <nav decorator="editable">
   <ul class="group">
-    <li class="gallery-title" *ngFor="let menu of getMenus()">
+    <li class="gallery-title" *ngFor="let menu of menus">
       <a href="{{menu.url}}" class="active">{{menu.label}}</a>
     </li>
     <li class="project-title">

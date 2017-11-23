@@ -1,15 +1,15 @@
 <main>
   <section class="project-covers" decorator="editable" data-context="theme.gallery.projects">
-    <a *ngFor="let article of getArticles()"
-    decorator="editable" class="project-cover hold-space has-rollover" href="/aspiration-bank-app" data-context="pages" data-identity="id:p5768539e64523df00b7b311e21d4adf2166aeee0896255a864ef6">
+    <a *ngFor="let article of articles"
+    decorator="editable" class="project-cover hold-space has-rollover" href="/a/{{ article.Id }}.html" data-context="pages" data-identity="id:p5768539e64523df00b7b311e21d4adf2166aeee0896255a864ef6">
         <div class="cover-image-wrap">
           <div class="cover-image">
             <div class="cover cover-rollover">
-              <div class="preview">{{ article.brief }}</div>
+              <div class="preview">{{ article.Content }}</div>
             </div>
             <div class="cover cover-normal has-rollover">
-              <div class="brief"><span>{{ article.brief }}</span></div>
-              <div class="title">{{ article.title }}</div>
+              <div class="brief"><span>{{ article.Brief }}</span></div>
+              <div class="title">{{ article.Title }}</div>
             </div>
           </div>
         </div>
