@@ -14,6 +14,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ArticleDetailComponent implements OnInit {
   public article;
+  public renderHighlightScript;
   private apiUrl = 'http://localhost:8088/article/';
 
   constructor(
@@ -21,14 +22,19 @@ export class ArticleDetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
-  ) { }
+  ) {
+    this.renderHighlightScript = this.sanitizer.bypassSecurityTrustHtml(
+      '<script src="assets/js/highlight/highlight.pack.js"></script>' +
+      '<script>hljs.initHighlightingOnLoad();</script>' +
+      '<script>alert(213)</script>'
+    );
+   }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.fetchArticle(id);
-    this.article.Content = this.sanitizer.bypassSecurityTrustHtml(this.article.Content);
   }
-  
+
   fetchArticle(id) {
     this.http.get<Article>(this.apiUrl + id)
     .subscribe(
