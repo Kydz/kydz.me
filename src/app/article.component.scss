@@ -7,7 +7,7 @@ main {
   @media (max-width: $mediaMedium) {
     width: 75%
   }
-  width: 50%;
+  width: 75%;
   float: left;
 }
 
@@ -15,20 +15,21 @@ main {
   padding-bottom: 0px;
   padding-top: 25px;
 
-  :nth-child(2n+1) {
-    clear: left;
+  :nth-child(3n) {
     margin-left: 0;
   }
-  :nth-child(2n) {
+  :nth-child(3n+3) {
+    clear: right;
     margin-right: 0;
   }
 }
 
 .project-cover {
 
-  @media (min-width: 640px) {
+  @media (min-width: $mediaMedium) {
     margin-right: 1%;
-    width: 49.5%;
+    width: 32%;
+    margin-bottom: 3.5px;
   }
 
 
@@ -57,14 +58,21 @@ main {
   }
   .cover-normal {
     .brief {
-      height: 200px;
-      padding: 5%;
+      text-align: center;
+      max-height: 178px;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 40px;
+      overflow: hidden;
     }
     .title {
+      border-top: solid 2px #eee;
       text-align: center;
       color: #2e2e2e;
-      font-size: 40px;
+      font-size: 25px;
       font-weight: 400;
+      position: sticky;
+      top: 75%;
     }
   }
   .cover-image {
@@ -88,7 +96,6 @@ main {
     margin-right: auto;
     width: 100%;
     position: relative;
-
   }
   .details-wrap {
     padding-bottom: 0%;
@@ -108,11 +115,13 @@ main {
     overflow: hidden;
   }
   .cover {
+    padding-left: 10%;
+    padding-right: 10%;
     position: absolute;
     top: 0;
     left: 0;
     min-height: 100%;
-    width: 100%;
+    width: 80%;
     background-position: center center;
     background-size: cover;
     background-image: url('../assets/blank.png');
