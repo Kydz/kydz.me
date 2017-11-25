@@ -23,11 +23,6 @@ export class ArticleDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) {
-    this.renderHighlightScript = this.sanitizer.bypassSecurityTrustHtml(
-      '<script src="assets/js/highlight/highlight.pack.js"></script>' +
-      '<script>hljs.initHighlightingOnLoad();</script>' +
-      '<script>alert(213)</script>'
-    );
    }
 
   ngOnInit(): void {
