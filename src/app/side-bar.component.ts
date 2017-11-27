@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Menu } from './menu';
 
@@ -8,14 +8,18 @@ import { Menu } from './menu';
   styleUrls: ['./side-bar.component.scss']
 })
 
-export class SideBarComponent {
-  public menus;
+export class SideBarComponent implements OnInit {
+  public menus = [];
   private menu;
+
+  ngOnInit () {
+    this.getMenus();
+  }
 
   getMenus(): void {
     this.menu = new Menu();
     this.menu.id = 1;
-    this.menu.url = 'archive';
+    this.menu.url = '/';
     this.menu.label = 'Archive';
     this.menus.push(this.menu);
   }

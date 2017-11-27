@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http/src/response';
 })
 
 export class ArticleListComponent implements OnInit {
-  private apiUrl = 'http://localhost:8088/article';
+  private apiUrl = 'http://localhost:8088/article?perpage=15';
   public articles;
 
   constructor(
