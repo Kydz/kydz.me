@@ -1,3 +1,4 @@
+@import "../assets/sass/colors.scss";
 @import "../assets/sass/screens.scss";
 
 main {
@@ -41,6 +42,9 @@ main {
     .has-rollover {
       display: none;
     }
+    .cover-half {
+      display: block;
+    }
   }
   .cover-rollover {
     &::after {
@@ -61,11 +65,12 @@ main {
       padding-right: 5%;
       padding-top: 40px;
       overflow: hidden;
+      color: $middleDark;
     }
     .title {
-      border-top: solid 2px #eee;
+      border-top: solid 2px $light;
       text-align: center;
-      color: #2e2e2e;
+      color: $middleDark;
       font-size: 25px;
       font-weight: 400;
       position: sticky;
@@ -113,10 +118,15 @@ main {
     left: 0;
     min-height: 100%;
     width: 80%;
-    background-position: center center;
-    background-size: cover;
-    background-image: url('../assets/blank.png');
+    background-color: $background;
   }
+  .cover-half {
+      display: none;
+      top: 99%;
+      left: 0;
+      height: 100%;
+      background-color: $highlight;
+    }
 }
 .project-cover.hold-space .cover-image{
   &::before {
@@ -170,7 +180,7 @@ main {
   padding-top: 60px;
   width: 100%;
   h1 {
-    color: #222;
+    color: $heavyDark;
     font-family: tscy;
     font-size: 50px;
     font-style: normal;
@@ -182,7 +192,7 @@ main {
     width: 100%;
   }
   .description {
-    color: #999;
+    color: $lightDark;
     font-family: tscy;
     font-size: 18px;
     font-style: normal;
@@ -203,7 +213,7 @@ main {
   text-align: center;
 
   a {
-    color: #999;
+    color: $light;
     font-family: tscy;
     font-size: 18px;
     font-style: normal;

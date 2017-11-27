@@ -13,6 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http/src/response';
 
 export class ArticleListComponent implements OnInit {
   private apiUrl = 'http://localhost:8088/article?perpage=15';
+  private currentPage = 0;
+  private perpage = 18;
   public articles;
 
   constructor(
@@ -21,19 +23,39 @@ export class ArticleListComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchArticles();
+    console.log(this.setUrl(2));
+  }
+
+  setUrl(page: number): string {
+    let url: string;
+    url = this.apiUrl + `?perpage=${ this.perpage }&page=${ page }`;
+    return url;
+  }
+
+  loadPreviousPage(): void {
+    let page = 0;
+    page = ++this.currentPage;
+  }
+
+  loadNextPage(): void {
+    let page = 0;
+    this.currentPage === 0 ?
+      page = 0 : page = --this.currentPage;
   }
 
   fetchArticles(): void {
     this.http.get<Article[]>(this.apiUrl)
     .subscribe(
       articles => this.articles = articles,
-      (err: HttpErrorResponse) => {
-        if (err.error instanceof Error) {
-          console.log('error: ' + err.error.message);
-        } else {
-          console.log('error: ' + err.status + ', detail: ' + err.error);
-        }
-      }
+      (err: HttpErrorResponse) => this.errorHandling(err)
     );
+  }
+
+  errorHandling(err): void {
+    if (err.error instanceof Error) {
+      console.log('error: ' + err.error.message);
+    } else {
+      console.log('error: ' + err.status + ', detail: ' + err.error);
+    }
   }
 }
