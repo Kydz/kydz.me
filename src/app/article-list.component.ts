@@ -12,21 +12,20 @@ import { HttpErrorResponse } from '@angular/common/http/src/response';
 })
 
 export class ArticleListComponent implements OnInit {
-  private apiUrl = 'http://localhost:8088/article?perpage=15';
+  private apiUrl = 'http://localhost:8088/article';
   private currentPage = 0;
   private perpage = 18;
-  public articles;
+  public articles: Array<Article>;
 
   constructor(
     private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.fetchArticles();
-    console.log(this.setUrl(2));
+    this.fetchArticles(this.getRequestUrl(this.currentPage));
   }
 
-  setUrl(page: number): string {
+  getRequestUrl(page: number): string {
     let url: string;
     url = this.apiUrl + `?perpage=${ this.perpage }&page=${ page }`;
     return url;
@@ -35,18 +34,26 @@ export class ArticleListComponent implements OnInit {
   loadPreviousPage(): void {
     let page = 0;
     page = ++this.currentPage;
+    this.fetchArticles(this.getRequestUrl(page));
   }
 
   loadNextPage(): void {
     let page = 0;
     this.currentPage === 0 ?
-      page = 0 : page = --this.currentPage;
+    page = 0 : page = --this.currentPage;
+    this.fetchArticles(this.getRequestUrl(page));
   }
 
-  fetchArticles(): void {
-    this.http.get<Article[]>(this.apiUrl)
+  fetchArticles(url: string): void {
+    this.http.get<Article[]>(url)
     .subscribe(
-      articles => this.articles = articles,
+      articles =>  {
+        if (this.articles === undefined) {
+          this.articles = articles;
+        } else {
+          this.articles = this.articles.concat(articles);
+        }
+      },
       (err: HttpErrorResponse) => this.errorHandling(err)
     );
   }

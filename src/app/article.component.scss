@@ -22,6 +22,22 @@ main {
   }
 }
 
+.project-nav {
+  clear: both;
+
+  .load-more {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    opacity: 0.6;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 50px;
+    padding-bottom: 150px;
+  }
+}
+
 .project-cover {
 
   @media (min-width: $mediaMedium) {
@@ -68,7 +84,7 @@ main {
       color: $middleDark;
     }
     .title {
-      border-top: solid 2px $light;
+      border-top: solid 1px $light;
       text-align: center;
       color: $middleDark;
       font-size: 25px;

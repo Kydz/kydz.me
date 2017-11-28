@@ -1,6 +1,7 @@
 <main>
   <section class="project-covers">
-    <a *ngFor="let article of articles" class="project-cover hold-space has-rollover" href="/a/{{ article.Id }}">
+    <div *ngFor="let article of articles">
+    <a *ngIf="article.Id > 0" class="project-cover hold-space has-rollover" href="/a/{{ article.Id }}">
         <div class="cover-image-wrap">
           <div class="cover-image">
             <div class="cover cover-rollover">
@@ -14,5 +15,9 @@
           </div>
         </div>
     </a>
+    </div>
+  </section>
+  <section class="project-nav">
+    <div class="load-more" (click)="loadPreviousPage()"><span>加载更多...</span></div>
   </section>
 </main>
