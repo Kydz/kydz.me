@@ -19,7 +19,8 @@ export class ArticleListComponent implements OnInit {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.fetchArticles(this.getRequestUrl(this.currentPage));
@@ -40,14 +41,13 @@ export class ArticleListComponent implements OnInit {
   loadNextPage(): void {
     let page = 0;
     this.currentPage === 0 ?
-    page = 0 : page = --this.currentPage;
+      page = 0 : page = --this.currentPage;
     this.fetchArticles(this.getRequestUrl(page));
   }
 
   fetchArticles(url: string): void {
-    this.http.get<Article[]>(url)
-    .subscribe(
-      articles =>  {
+    this.http.get<Article[]>(url).subscribe(
+      articles => {
         if (this.articles === undefined) {
           this.articles = articles;
         } else {

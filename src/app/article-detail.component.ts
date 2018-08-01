@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { Article } from './article';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-article-detail',
@@ -20,8 +20,7 @@ export class ArticleDetailComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private route: ActivatedRoute
   ) {
    }
 
