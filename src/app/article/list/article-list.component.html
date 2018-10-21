@@ -5,7 +5,7 @@
         <div class="cover-image-wrap">
           <div class="cover-image">
             <div class="cover cover-rollover">
-              <div class="preview" [innerHtml]="article.Content"></div>
+              <div class="preview" markdown [data]="article.Content"></div>
             </div>
             <div class="cover cover-normal has-rollover">
               <div class="brief"><span>{{ article.Brief }}</span></div>

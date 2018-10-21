@@ -2,18 +2,18 @@
   <div class="project-container" decorator="editable" data-context="theme.project.container">
     <section class="project">
       <header class="project-header content" decorator="editable" data-context="theme.project">
-        <h1 class="title">{{ article.Title }}</h1>
+        <h1 class="title">{{ article.title }}</h1>
         <p class="description">{{ article.Brief }}</p>
       </header>
       <div class="project-content" decorator="editable" data-context="pages">
         <div id="project-canvas" class="js-project-modules modules content">
-          <div id="project-modules" [innerHTML]="article.Content">
+          <div id="project-modules" markdown [data]="article.content">
           </div>
         </div>
       </div>
     </section>
     <section class="back-to-top" decorator="editable">
-      <a href="/a/{{ article.Id }}#">
+      <a href="/a/{{ article.id }}#">
         <span class="arrow">↑</span>Top</a>
     </section>
   </div>

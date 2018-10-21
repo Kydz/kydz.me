@@ -1,28 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
-import { DomSanitizer } from '@angular/platform-browser';
-
-import { Article } from './article';
-import { Observable } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['../article.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
   public article;
-  public renderHighlightScript;
-  private apiUrl = 'http://localhost:8088/article/';
 
   constructor(
-    private http: HttpClient,
+    private apiService: ApiService,
     private router: Router,
     private route: ActivatedRoute
   ) {
-   }
+  }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -30,8 +24,7 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   fetchArticle(id) {
-    this.http.get<Article>(this.apiUrl + id)
-    .subscribe(
+    this.apiService.getArticle(id).subscribe(
       article => this.article = article,
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

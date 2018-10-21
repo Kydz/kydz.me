@@ -1,0 +1,29 @@
+form {
+  margin-top: 6rem;
+
+  .title {
+    width: 60%;
+  }
+  .activated {
+    margin: 0 5rem;
+  }
+  .brief {
+    width: 100%;
+  }
+  .md-editor {
+    display: flex;
+
+    .editor {
+      width: 50%;
+
+      .text-area-form-field {
+        width: 100%;
+      }
+    }
+    .preview {
+      padding: 1rem 2rem;
+      width: 50%;
+    }
+  }
+
+}

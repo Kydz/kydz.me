@@ -4,12 +4,12 @@
   @media (max-width: $mediaMedium) {
     display: none;
   }
-  width: 25%;    
-  float: left;
 }
+
 .site-header {
   position: relative;
 }
+
 .logo-warp {
   max-width: 100%;
   float: left;
@@ -17,9 +17,9 @@
   padding-top: 60px;
   width: 100%;
 }
+
 .logo {
   color: #222;
-  font-family: gmsj;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
@@ -29,11 +29,12 @@
   padding-right: 55%;
   padding-top: 50px;
   text-transform: none;
-  
+
   img {
     max-width: 100%;
   }
 }
+
 .logo-image {
   max-width: 100%;
   margin-left: auto;
@@ -60,7 +61,6 @@ nav {
     text-align: left;
     a {
       color: #222;
-      font-family: tvpw;
       font-size: 18px;
       font-style: normal;
       font-weight: 700;
@@ -80,7 +80,6 @@ nav {
     padding-top: 0px;
     text-align: left;
     a {
-      font-family: tvpw;
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -104,7 +103,6 @@ nav {
     text-align: left;
     a {
       color: #333333;
-      font-family: tvpw;
       font-size: 18px;
       font-style: normal;
       font-weight: 700;

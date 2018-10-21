@@ -5,7 +5,8 @@
 
 body {
   background-color: #f9f9f9;
-  max-width: 1280px;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -16,5 +17,7 @@ a {
 img {
   max-width: 100%;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+html, body {
+  height: 100%;
+}
