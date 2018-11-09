@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './side-bar.component';
-import { ArticleListComponent } from './article/list/article-list.component';
-import { ArticleDetailComponent } from './article/detail/article-detail.component';
+import { ArticleListComponent } from './components/article/list/article-list.component';
+import { ArticleDetailComponent } from './components/article/detail/article-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EditComponent } from './article/edit/edit.component';
+import { EditComponent } from './components/article/edit/edit.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

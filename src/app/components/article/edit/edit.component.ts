@@ -4,8 +4,8 @@ import { debounceTime } from 'rxjs/operators';
 import { MarkdownService } from 'ngx-markdown';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
-import { Article } from '../../models/article';
+import { ArticleService } from '../../../services/article.service';
+import { Article } from '../../../models/article';
 
 @Component({
   selector: 'app-edit',
@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
   private updatePreviewTriggerSub$ = new Subject();
   private regxId = new RegExp('\\d+');
 
-  constructor(private md: MarkdownService, private fb: FormBuilder, private route: ActivatedRoute, private apiService: ApiService) {
+  constructor(private md: MarkdownService, private fb: FormBuilder, private route: ActivatedRoute, private apiService: ArticleService) {
   }
 
   ngOnInit() {

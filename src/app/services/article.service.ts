@@ -4,19 +4,43 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Article } from '../models/article';
 
+const CURRENT_START = 'current-start';
+
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ArticleService {
+
+  currentStart = 0;
+  hasOrderContent = true;
 
   private readonly endpoint = 'http://localhost:8088/';
-  private readonly perPage = 18;
+  private readonly limit = 12;
 
   constructor(private http: HttpClient) {
   }
 
-  getArticleList(page = 1): Observable<Article[]> {
-    return this.http.get <Article[]>(this.endpoint + `article?perpage=${ this.perPage }&page=${ page }`).pipe(
+  getStart() {
+    let start = 0;
+    if (this.currentStart) {
+      start = this.currentStart;
+    } else {
+      const cachedStart = Number(localStorage.getItem(CURRENT_START));
+      if (cachedStart) {
+        this.currentStart = start = cachedStart;
+      }
+    }
+    return start;
+  }
+
+  setStart(start: number) {
+    this.currentStart = start;
+    localStorage.setItem(CURRENT_START, start.toString());
+  }
+
+  getArticleList(start = 1): Observable<Article[]> {
+    const offset = start * this.limit;
+    return this.http.get <Article[]>(this.endpoint + `article?o=${ offset }&l=${ this.limit }`).pipe(
       catchError(this.handleError)
     );
   }

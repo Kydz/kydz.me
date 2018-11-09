@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
-import { ApiService } from '../../services/api.service';
+import { ArticleService } from '../../../services/article.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -12,7 +12,7 @@ export class ArticleDetailComponent implements OnInit {
   public article;
 
   constructor(
-    private apiService: ApiService,
+    private apiService: ArticleService,
     private router: Router,
     private route: ActivatedRoute
   ) {

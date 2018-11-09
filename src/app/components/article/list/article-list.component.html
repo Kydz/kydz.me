@@ -1,7 +1,7 @@
 <main>
   <section class="project-covers">
     <div *ngFor="let article of articles">
-    <a *ngIf="article.Id > 0" class="project-cover hold-space has-rollover" href="/a/{{ article.Id }}">
+    <a *ngIf="article.Id > 0" class="project-cover hold-space has-rollover" [routerLink]="['/a/' + article.Id]">
         <div class="cover-image-wrap">
           <div class="cover-image">
             <div class="cover cover-rollover">
@@ -18,6 +18,7 @@
     </div>
   </section>
   <section class="project-nav">
-    <div class="load-more" (click)="loadPreviousPage()"><span>加载更多...</span></div>
+    <div *ngIf="hasOrderContent()" class="load-more" (click)="loadPreviousPage()"><span>加载更早的</span></div>
+    <div *ngIf="!isInStart()" class="load-more" (click)="loadNextPage()"><span>加载更新的</span></div>
   </section>
 </main>
