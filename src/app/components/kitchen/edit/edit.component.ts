@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../../../services/article.service';
 import { Article } from '../../../models/article';
+import { EditViewMode } from '../../../dictionary/misc';
 
 @Component({
   selector: 'app-edit',
@@ -21,6 +22,7 @@ export class EditComponent implements OnInit {
   private id = 0;
   private updatePreviewTriggerSub$ = new Subject();
   private regxId = new RegExp('\\d+');
+  private editMode: number;
 
   constructor(private md: MarkdownService, private fb: FormBuilder, private route: ActivatedRoute, private apiService: ArticleService) {
   }
@@ -32,10 +34,10 @@ export class EditComponent implements OnInit {
       if (segments[1]) {
         const path = segments[1].path;
         if (path === 'new') {
-          this.newMode();
+          this.setNewMode();
         } else if (this.regxId.test(path)) {
           this.id = Number(path);
-          this.editMode();
+          this.setEditMode();
         }
       }
     });
@@ -47,23 +49,32 @@ export class EditComponent implements OnInit {
 
   submit() {
     const article = new Article();
-    article.Id = this.id;
-    article.Content = this.mdContent;
-    article.Brief = this.articleForm.value.brief;
-    article.Active = this.isArticleActivated ? 1 : 0;
-    this.apiService.putArticle(article).subscribe(console.log);
+    article.id = this.id;
+    article.content = this.mdContent;
+    article.brief = this.articleForm.value.brief;
+    article.active = this.isArticleActivated ? 1 : 0;
+    if (this.editMode === EditViewMode.EDIT) {
+      this.apiService.putArticle(article).subscribe(result => {
+        console.log(result);
+      });
+    } else {
+      this.apiService.postArticle(article).subscribe(result => {
+        console.log(result);
+      });
+    }
   }
 
-  private newMode() {
-
+  private setNewMode() {
+    this.editMode = EditViewMode.NEW;
   }
 
-  private editMode() {
+  private setEditMode() {
+    this.editMode = EditViewMode.EDIT;
     this.apiService.getArticle(this.id).subscribe((article: Article) => {
       this.articleForm.patchValue(
-        {'title': article.Title, 'brief': article.Brief, 'content': article.Content});
-      this.mdContent = article.Content;
-      this.isArticleActivated = article.Active === 1;
+        {'title': article.title, 'brief': article.brief, 'content': article.content});
+      this.mdContent = article.content;
+      this.isArticleActivated = article.active === 1;
     });
   }
 

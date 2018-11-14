@@ -1,24 +1,12 @@
 <main>
-  <section class="project-covers">
-    <div *ngFor="let article of articles">
-    <a *ngIf="article.Id > 0" class="project-cover hold-space has-rollover" [routerLink]="['/a/' + article.Id]">
-        <div class="cover-image-wrap">
-          <div class="cover-image">
-            <div class="cover cover-rollover">
-              <div class="preview" markdown [data]="article.Content"></div>
-            </div>
-            <div class="cover cover-normal has-rollover">
-              <div class="brief"><span>{{ article.Brief }}</span></div>
-              <div class="title">{{ article.Title }}</div>
-            </div>
-            <div class="cover cover-half"></div>
-          </div>
-        </div>
+  <section *ngFor="let article of articles">
+    <a *ngIf="article.id > 0" [routerLink]="['/a/' + article.id]">
+      <div class="brief"><span>{{ article.brief }}</span></div>
+      <div class="title">{{ article.title }}</div>
     </a>
-    </div>
-  </section>
-  <section class="project-nav">
-    <div *ngIf="hasOrderContent()" class="load-more" (click)="loadPreviousPage()"><span>加载更早的</span></div>
-    <div *ngIf="!isInStart()" class="load-more" (click)="loadNextPage()"><span>加载更新的</span></div>
   </section>
 </main>
+<footer>
+  <div *ngIf="hasOrderContent()" class="load-more" (click)="loadPreviousPage()"><span>加载更早的</span></div>
+  <div *ngIf="!isInStart()" class="load-more" (click)="loadNextPage()"><span>加载更新的</span></div>
+</footer>

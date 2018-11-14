@@ -1,0 +1,6 @@
+<div><a [routerLink]="['/kitchen/new']">New</a></div>
+<div>
+  <ul>
+    <li *ngFor="let article of articles"><a [routerLink]="[article.id]">{{article.title}}</a></li>
+  </ul>
+</div>

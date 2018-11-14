@@ -26,6 +26,7 @@
     "@angular/router": "^6.0.0",
     "core-js": "^2.5.7",
     "ngx-markdown": "^6.3.0",
+    "ngx-toastr": "^9.1.1",
     "rxjs": "^6.2.2",
     "zone.js": "0.8.26"
   },

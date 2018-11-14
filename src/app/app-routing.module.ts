@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArticleListComponent } from './components/article/list/article-list.component';
 import { ArticleDetailComponent } from './components/article/detail/article-detail.component';
-import { EditComponent } from './components/article/edit/edit.component';
+import { EditComponent } from './components/kitchen/edit/edit.component';
+import { KitchenComponent } from './components/kitchen/kitchen.component';
 
 const routes: Routes = [
   {path: '', component: ArticleListComponent},
   {path: 'a/:id', component: ArticleDetailComponent},
-  {path: 'e/:id', component: EditComponent},
-  {path: 'e/new', component: EditComponent}
+  {path: 'kitchen', component: KitchenComponent},
+  {path: 'kitchen/:id', component: EditComponent},
+  {path: 'kitchen/new', component: EditComponent},
 ];
 
 @NgModule({

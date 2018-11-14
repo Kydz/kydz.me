@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Article } from '../models/article';
 
 const CURRENT_START = 'current-start';
@@ -15,7 +15,6 @@ export class ArticleService {
   hasOrderContent = true;
 
   private readonly endpoint = 'http://localhost:8088/';
-  private readonly limit = 12;
 
   constructor(private http: HttpClient) {
   }
@@ -38,10 +37,14 @@ export class ArticleService {
     localStorage.setItem(CURRENT_START, start.toString());
   }
 
-  getArticleList(start = 1): Observable<Article[]> {
-    const offset = start * this.limit;
-    return this.http.get <Article[]>(this.endpoint + `article?o=${ offset }&l=${ this.limit }`).pipe(
-      catchError(this.handleError)
+  getArticleList(start = 1, limit = 12): Observable<Article[]> {
+    const offset = start * limit;
+    return this.http.get <Article[]>(this.endpoint + `article?o=${ offset }&l=${ limit }`).pipe(
+      catchError(this.handleError),
+      map((data: any[]) => {
+        this.hasOrderContent = data.length === limit;
+        return data;
+      })
     );
   }
 
@@ -52,12 +55,19 @@ export class ArticleService {
   }
 
   putArticle(article: Article): Observable<any> {
-    return this.http.put(this.endpoint + `article/${ article.Id }`, article).pipe(
+    return this.http.put(this.endpoint + `article/${ article.id }`, article).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  postArticle(article: Article): Observable<any> {
+    return this.http.post(this.endpoint + `article`, article).pipe(
       catchError(this.handleError)
     );
   }
 
   private handleError(error) {
+    console.error(error);
     return throwError(error);
   }
 }

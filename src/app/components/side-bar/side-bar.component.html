@@ -1,0 +1,14 @@
+<section>
+  <header>
+    <figure>
+      <img src="../../../assets/images/k.svg">
+    </figure>
+  </header>
+  <nav>
+    <ul>
+      <li *ngFor="let menu of menus">
+        <a [routerLink]="[menu.url]" class="active">{{menu.label}}</a>
+      </li>
+    </ul>
+  </nav>
+</section>

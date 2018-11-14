@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Menu } from './models/menu';
+import { Menu } from '../../models/menu';
 
 @Component({
   selector: 'app-side-bar',
@@ -11,11 +11,10 @@ import { Menu } from './models/menu';
 export class SideBarComponent implements OnInit {
   public menus = [
     new Menu({id: 1, url: '/', label: 'Archive'}),
-    new Menu({id: 2, url: '/e/new', label: 'Write'}),
+    new Menu({id: 2, url: '/kitchen', label: 'Cook'})
   ];
 
   ngOnInit () {
-    console.log(this.menus);
   }
 
 }

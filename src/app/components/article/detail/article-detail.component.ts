@@ -6,7 +6,7 @@ import { ArticleService } from '../../../services/article.service';
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
-  styleUrls: ['../article.component.scss']
+  styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
   public article;
@@ -35,5 +35,4 @@ export class ArticleDetailComponent implements OnInit {
       }
     );
   }
-
 }
