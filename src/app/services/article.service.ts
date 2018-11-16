@@ -12,7 +12,7 @@ const CURRENT_START = 'current-start';
 export class ArticleService {
 
   currentStart = 0;
-  hasOrderContent = true;
+  hasPreviousArticles = true;
 
   private readonly endpoint = 'http://localhost:8088/';
 
@@ -37,25 +37,25 @@ export class ArticleService {
     localStorage.setItem(CURRENT_START, start.toString());
   }
 
-  getArticleList(start = 1, limit = 12): Observable<Article[]> {
+  getArticleList(start = 1, limit = 6): Observable<Article[]> {
     const offset = start * limit;
-    return this.http.get <Article[]>(this.endpoint + `article?o=${ offset }&l=${ limit }`).pipe(
+    return this.http.get(this.endpoint + `article?o=${offset}&l=${limit}`).pipe(
       catchError(this.handleError),
-      map((data: any[]) => {
-        this.hasOrderContent = data.length === limit;
-        return data;
+      map((data: any) => {
+        this.hasPreviousArticles = data.total > offset && data.total !== offset + limit;
+        return data.rows;
       })
     );
   }
 
   getArticle(id: number): Observable<Article> {
-    return this.http.get<Article>(this.endpoint + `article/${ id }`).pipe(
+    return this.http.get<Article>(this.endpoint + `article/${id}`).pipe(
       catchError(this.handleError)
     );
   }
 
   putArticle(article: Article): Observable<any> {
-    return this.http.put(this.endpoint + `article/${ article.id }`, article).pipe(
+    return this.http.put(this.endpoint + `article/${article.id}`, article).pipe(
       catchError(this.handleError)
     );
   }

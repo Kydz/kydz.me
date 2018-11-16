@@ -1,2 +1,64 @@
 @import "../../../../assets/sass/colors";
 @import "../../../../assets/sass/screens";
+
+main {
+  article {
+    margin-bottom: 3rem;
+    height: 10rem;
+    border-bottom: 2px solid $lightDark;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    transition: border-bottom-color 0.2s, border-bottom-width 0.1s, box-shadow 0.2s, background-color 0.1s;
+
+    &:hover {
+      border-bottom: 4px solid $highlight;
+      box-shadow: 5px 5px 50px $light;
+      background-color: $evenLighter;
+      transition: border-bottom-color 0.5s, border-bottom-width 0.2s, box-shadow 0.5s, background-color 0.2s;
+
+    }
+
+    section {
+      color: $lightDark;
+      height: 5rem;
+      font-size: 1.2rem;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      margin-bottom: 0.5rem;
+    }
+    header {
+      color: $heavyDark;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  div {
+    display: flex;
+    justify-items: center;
+    cursor: pointer;
+    transition: font-weight 0.1s, color 0.1s;
+
+    &:hover {
+      font-weight: bolder;
+      color: $highlight;
+      transition: font-weight 0.2s, color 0.2s;
+    }
+
+    &.load-previous {
+      align-self: flex-start;
+    }
+
+    &.load-next {
+      align-self: flex-end;
+    }
+  }
+  margin-bottom: 10rem;
+}

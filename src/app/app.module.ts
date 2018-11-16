@@ -12,13 +12,13 @@ import { MarkdownModule } from 'ngx-markdown';
 import { MatButtonModule, MatFormFieldModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
-import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { LeftSideComponent } from './components/left-side/left-side.component';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideBarComponent,
+    LeftSideComponent,
     ArticleListComponent,
     ArticleDetailComponent,
     EditComponent,
@@ -41,4 +41,5 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

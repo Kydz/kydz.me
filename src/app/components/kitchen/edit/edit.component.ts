@@ -53,6 +53,7 @@ export class EditComponent implements OnInit {
     article.content = this.mdContent;
     article.brief = this.articleForm.value.brief;
     article.active = this.isArticleActivated ? 1 : 0;
+    article.title = this.articleForm.value.title;
     if (this.editMode === EditViewMode.EDIT) {
       this.apiService.putArticle(article).subscribe(result => {
         console.log(result);
@@ -62,6 +63,10 @@ export class EditComponent implements OnInit {
         console.log(result);
       });
     }
+  }
+
+  changeActive(slide) {
+    this.isArticleActivated = slide.checked;
   }
 
   private setNewMode() {

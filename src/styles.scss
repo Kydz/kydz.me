@@ -1,14 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ngx-toastr/toastr.css';
 
-.link-transition a {
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
 body {
-  background-color: #f9f9f9;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #e7e7e7;
 }
 
 a {
@@ -22,4 +18,17 @@ img {
 
 html, body {
   height: 100%;
+}
+
+
+article {
+  section {
+    div {
+      p {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

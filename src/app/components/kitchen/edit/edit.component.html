@@ -2,7 +2,7 @@
   <mat-form-field [appearance]="'outline'" class="title">
     <input matInput formControlName="title" placeholder="标题">
   </mat-form-field>
-  <mat-slide-toggle [checked]="isArticleActivated" class="activated">是否激活</mat-slide-toggle>
+  <mat-slide-toggle [(checked)]="isArticleActivated" class="activated" (change)="changeActive($event)">是否激活</mat-slide-toggle>
   <button mat-stroked-button (click)="submit()">提交</button>
   <mat-form-field [appearance]="'outline'" class="brief">
     <textarea rows="5" matInput formControlName="brief" (keyup)="triggerUpdate()"></textarea>

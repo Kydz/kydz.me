@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Menu } from '../../models/menu';
 
 @Component({
-  selector: 'app-side-bar',
-  templateUrl: './side-bar.component.html',
-  styleUrls: ['./side-bar.component.scss']
+  selector: 'app-left-side',
+  templateUrl: './left-side.component.html',
+  styleUrls: ['./left-side.component.scss']
 })
 
-export class SideBarComponent implements OnInit {
+export class LeftSideComponent implements OnInit {
   public menus = [
     new Menu({id: 1, url: '/', label: 'Archive'}),
     new Menu({id: 2, url: '/kitchen', label: 'Cook'})

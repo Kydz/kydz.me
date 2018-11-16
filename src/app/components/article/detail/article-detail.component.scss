@@ -1,2 +1,21 @@
 @import "../../../../assets/sass/colors";
 @import "../../../../assets/sass/screens";
+
+main {
+  article {
+    header {
+      h1 {
+        text-align: center;
+        font-size: 4rem;
+      }
+
+      p {
+        color: $lightDark;
+      }
+    }
+
+    section {
+      border-top: 1px $light solid;
+    }
+  }
+}

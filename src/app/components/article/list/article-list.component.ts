@@ -37,7 +37,7 @@ export class ArticleListComponent implements OnInit {
   }
 
   hasOrderContent() {
-    return this.articleService.hasOrderContent;
+    return this.articleService.hasPreviousArticles;
   }
 
 

@@ -1,15 +1,15 @@
 <main>
   <article>
     <header>
-      <h1 class="title">{{ article.title }}</h1>
+      <h1>{{ article?.title }}</h1>
       <time datetime="article.created"></time>
-      <p class="description">{{ article.brief }}</p>
+      <p>{{ article?.brief }}</p>
     </header>
-    <section class="project">
-      <div id="project-modules" markdown [data]="article.content"></div>
+    <section>
+      <div markdown [data]="article?.content"></div>
     </section>
     <footer>
-      <a href="/kitchen/{{ article.id }}#">
+      <a href="/a/{{ article?.id }}#">
         <span class="arrow">↑</span>Top</a>
     </footer>
   </article>
