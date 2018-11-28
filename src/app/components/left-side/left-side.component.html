@@ -1,14 +1,20 @@
 <section>
   <header>
     <figure>
-      <img src="../../../assets/images/k.svg">
+      <img alt="logo" src="../../../assets/images/k.svg">
     </figure>
   </header>
   <nav>
     <ul>
       <li *ngFor="let menu of menus">
-        <a [routerLink]="[menu.url]" class="active">{{menu.label}}</a>
+        <a [routerLink]="[menu.url]">{{menu.label}}</a>
       </li>
     </ul>
   </nav>
+  <footer>
+    <ul>
+      <li><a href="mailto:boatkyd@gmail.com">boatkyd@gmail.com</a></li>
+      <li><a href="https://github.com/Kydz" target="_blank">https://github.com/Kydz</a></li>
+    </ul>
+  </footer>
 </section>

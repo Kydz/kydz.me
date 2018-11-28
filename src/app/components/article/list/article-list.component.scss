@@ -5,7 +5,7 @@ main {
   article {
     margin-bottom: 3rem;
     height: 10rem;
-    border-bottom: 2px solid $lightDark;
+    border-bottom: 2px solid $littleDark;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -15,13 +15,13 @@ main {
     &:hover {
       border-bottom: 4px solid $highlight;
       box-shadow: 5px 5px 50px $light;
-      background-color: $evenLighter;
+      background-color: $veryLight;
       transition: border-bottom-color 0.5s, border-bottom-width 0.2s, box-shadow 0.5s, background-color 0.2s;
 
     }
 
     section {
-      color: $lightDark;
+      color: $littleDark;
       height: 5rem;
       font-size: 1.2rem;
       overflow: hidden;
@@ -30,7 +30,7 @@ main {
       margin-bottom: 0.5rem;
     }
     header {
-      color: $heavyDark;
+      color: $veryDark;
       font-size: 2.5rem;
       font-weight: bold;
     }

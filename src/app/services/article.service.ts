@@ -42,7 +42,7 @@ export class ArticleService {
     return this.http.get(this.endpoint + `article?o=${offset}&l=${limit}`).pipe(
       catchError(this.handleError),
       map((data: any) => {
-        this.hasPreviousArticles = data.total > offset && data.total !== offset + limit;
+        this.hasPreviousArticles = data.total > (offset + limit) && data.total !== offset + limit;
         return data.rows;
       })
     );

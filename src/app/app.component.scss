@@ -1,4 +1,15 @@
+@import "../assets/sass/colors.scss";
+
+header {
+  width: 100%;
+  position: fixed;
+  height: 5rem;
+  border-bottom: 2px solid $littleDark;
+  background-color: $background;
+}
 div {
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
 

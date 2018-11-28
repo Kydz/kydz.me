@@ -1,0 +1,12 @@
+<div>
+  <figure>
+    <img alt="logo" src="../../../assets/images/k.svg">
+  </figure>
+  <nav>
+    <ul>
+      <li *ngFor="let menu of menus">
+        <a [routerLink]="[menu.url]">{{menu.label}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -10,12 +10,22 @@ main {
       }
 
       p {
-        color: $lightDark;
+        color: $littleDark;
       }
     }
 
     section {
+      margin-top: 5rem;
       border-top: 1px $light solid;
     }
+  }
+}
+
+footer {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  a {
+    cursor: pointer;
   }
 }

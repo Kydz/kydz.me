@@ -9,8 +9,8 @@
       <div markdown [data]="article?.content"></div>
     </section>
     <footer>
-      <a href="/a/{{ article?.id }}#">
-        <span class="arrow">↑</span>Top</a>
+      <a [routerLink]="['/']">&#8592;Back</a>
+      <a (click)="toTop()">&#8593;Top</a>
     </footer>
   </article>
 </main>

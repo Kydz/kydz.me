@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
 import { ArticleService } from '../../../services/article.service';
+import { BrowserBehaviorService } from '../../../services/browser-behavior.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -14,7 +15,8 @@ export class ArticleDetailComponent implements OnInit {
   constructor(
     private apiService: ArticleService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private bb: BrowserBehaviorService
   ) {
   }
 
@@ -34,5 +36,9 @@ export class ArticleDetailComponent implements OnInit {
         }
       }
     );
+  }
+
+  toTop() {
+    this.bb.scrollTop();
   }
 }

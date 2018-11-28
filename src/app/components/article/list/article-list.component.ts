@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../../../models/article';
 import { HttpErrorResponse } from '@angular/common/http/src/response';
 import { ArticleService } from '../../../services/article.service';
+import { BrowserBehaviorService } from '../../../services/browser-behavior.service';
 
 @Component({
   selector: 'app-article-list',
@@ -14,7 +15,8 @@ export class ArticleListComponent implements OnInit {
   public articles: Array<Article>;
 
   constructor(
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private bb: BrowserBehaviorService
   ) {
   }
 
@@ -25,11 +27,13 @@ export class ArticleListComponent implements OnInit {
   loadPreviousPage(): void {
     this.articleService.setStart(++this.articleService.currentStart);
     this.fetchArticles(this.articleService.currentStart);
+    this.bb.scrollTop();
   }
 
   loadNextPage(): void {
     this.articleService.setStart(--this.articleService.currentStart);
     this.fetchArticles(this.articleService.currentStart);
+    this.bb.scrollTop();
   }
 
   isInStart(): boolean {

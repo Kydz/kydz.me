@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { LeftSideComponent } from './components/left-side/left-side.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     ArticleListComponent,
     ArticleDetailComponent,
     EditComponent,
-    KitchenComponent
+    KitchenComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
