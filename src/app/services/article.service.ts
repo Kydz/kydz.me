@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Article } from '../models/article';
+import { environment } from '../../environments/environment';
 
 const CURRENT_START = 'current-start';
 
@@ -14,7 +15,7 @@ export class ArticleService {
   currentStart = 0;
   hasPreviousArticles = true;
 
-  private readonly endpoint = 'http://localhost:8088/';
+  private readonly endpoint = environment.api;
 
   constructor(private http: HttpClient) {
   }
