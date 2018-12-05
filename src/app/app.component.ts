@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BrowserBehaviorService } from './services/browser-behavior.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -22,24 +22,33 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
+
 export class AppComponent implements OnInit {
   title = 'app';
   headerState = 'hide';
 
-  constructor(private router: Router, private bb: BrowserBehaviorService) {
+  private readonly isMdScreen: boolean = false;
 
+  constructor(private router: Router) {
+    if (window.innerWidth <= 768) {
+      this.headerState = 'show';
+      this.isMdScreen = true;
+    }
   }
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.bb.scrollTop();
+        BrowserBehaviorService.scrollTop();
       }
     });
   }
 
   @HostListener('window:scroll', ['$event'])
   checkHeaderDisplay() {
+    if (this.isMdScreen) {
+      return;
+    }
     const scrollPosition = window.pageYOffset;
     if (scrollPosition > 450) {
       this.headerState = 'show';

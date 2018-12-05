@@ -62,3 +62,19 @@ footer {
   }
   margin-bottom: 10rem;
 }
+
+@media screen and (max-width: $md) {
+  main {
+    article {
+      section {
+        font-size: 1rem;
+      }
+      header {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  footer {
+    margin-bottom: 1rem;
+  }
+}

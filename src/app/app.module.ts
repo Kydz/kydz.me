@@ -15,6 +15,7 @@ import { KitchenComponent } from './components/kitchen/kitchen.component';
 import { LeftSideComponent } from './components/left-side/left-side.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/kitchen/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HeaderComponent } from './components/header/header.component';
     ArticleDetailComponent,
     EditComponent,
     KitchenComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

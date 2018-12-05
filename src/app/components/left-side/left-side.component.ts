@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Menu } from '../../models/menu';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-left-side',
@@ -10,11 +11,15 @@ import { Menu } from '../../models/menu';
 
 export class LeftSideComponent implements OnInit {
   public menus = [
-    new Menu({id: 1, url: '/', label: 'Archive'}),
-    // new Menu({id: 2, url: '/kitchen', label: 'Cook'})
+    new Menu({id: 1, url: '/', label: 'Archive'})
   ];
 
-  ngOnInit () {
+  constructor() {
   }
 
+  ngOnInit() {
+    if (AuthService.isLogin()) {
+      this.menus.push(new Menu({id: 2, url: '/kitchen', label: 'Cook'}));
+    }
+  }
 }

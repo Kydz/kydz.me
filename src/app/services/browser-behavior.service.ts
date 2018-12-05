@@ -8,7 +8,7 @@ export class BrowserBehaviorService {
   constructor() {
   }
 
-  scrollTop() {
+  static scrollTop() {
     if ('scrollBehavior' in document.documentElement.style) {
       window.scrollTo({top: 0, behavior: 'smooth'});
     } else {

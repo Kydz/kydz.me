@@ -9,8 +9,7 @@ import { Menu } from '../../models/menu';
 export class HeaderComponent implements OnInit {
 
   public menus = [
-    new Menu({id: 1, url: '/', label: 'Archive'}),
-    // new Menu({id: 2, url: '/kitchen', label: 'Cook'})
+    new Menu({id: 1, url: '/', label: 'Archive'})
   ];
 
   constructor() { }

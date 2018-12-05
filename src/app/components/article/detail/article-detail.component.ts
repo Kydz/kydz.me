@@ -15,8 +15,7 @@ export class ArticleDetailComponent implements OnInit {
   constructor(
     private apiService: ArticleService,
     private router: Router,
-    private route: ActivatedRoute,
-    private bb: BrowserBehaviorService
+    private route: ActivatedRoute
   ) {
   }
 
@@ -39,6 +38,6 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   toTop() {
-    this.bb.scrollTop();
+    BrowserBehaviorService.scrollTop();
   }
 }

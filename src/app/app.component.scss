@@ -1,4 +1,5 @@
 @import "../assets/sass/colors.scss";
+@import "../assets/sass/screens.scss";
 
 header {
   width: 100%;
@@ -8,16 +9,28 @@ header {
   background-color: $background;
 }
 div {
-  max-width: 1440px;
-  margin: 0 auto;
+  max-width: 90rem;
+  margin: 5rem auto 3rem auto;
   display: flex;
   justify-content: center;
 
   main {
-    width: 768px;
+    width: 48rem;
+    min-height: 20rem;
   }
 
   aside {
-    width: 336px;
+    width: 21rem;
+  }
+}
+
+@media screen and (max-width: $md) {
+  div {
+    main {
+      width: 95%;
+    }
+  }
+  aside {
+    display: none;
   }
 }
