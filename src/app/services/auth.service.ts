@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import {sha256} from 'js-sha256';
 
 const TOKEN_KEY = 'token';
 
@@ -31,6 +32,9 @@ export class AuthService {
   }
 
   login(pass: string): Observable<boolean> {
+    const hash = sha256.create();
+    hash.update(pass);
+    pass = hash.hex();
     return this.http.post(this.apiEndpoint + 'admin/login', {password: pass}).pipe(
       map((res: any) => {
         if (res['token']) {

@@ -25,6 +25,7 @@
     "@angular/platform-server": "^6.0.0",
     "@angular/router": "^6.0.0",
     "core-js": "^2.5.7",
+    "js-sha256": "^0.9.0",
     "ngx-markdown": "^6.3.0",
     "ngx-toastr": "^9.1.1",
     "rxjs": "^6.2.2",
