@@ -46,4 +46,17 @@ export class AuthService {
       })
     );
   }
+
+  logout(): Observable<boolean> {
+    return this.http.post(this.apiEndpoint + 'admin/logout', {}).pipe(
+      map((res: any) => {
+        if (res['token']) {
+          localStorage.setItem(TOKEN_KEY, res.token);
+          return true;
+        } else {
+          return false;
+        }
+      })
+    );
+  }
 }
